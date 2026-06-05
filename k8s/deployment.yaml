@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sprinboot-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sprinboot-app
+  template:
+    metadata:
+      labels:
+        app: sprinboot-app
+    spec:
+      containers:
+      - name: sprinboot-app
+        image: afreen1297/sprinboot-app:1.0
+        ports:
+        - containerPort:8080
