@@ -2,18 +2,27 @@ pipeline {
     agent any
 
     stages {
-
-        
-
-        stage('Build') {
+        stage('Clone') {
             steps {
-                bat 'mvnw.cmd clean install'
+                git 'https://github.com/Afreen7866/springboot.git'
             }
         }
 
-        stage('Run') {
+        stage('Build') {
             steps {
-                bat 'dir target'
+                sh 'mvn clean install'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                sh 'mvn test'
+            }
+        }
+
+        stage('Run App') {
+            steps {
+                sh 'java -jar target/*.jar'
             }
         }
     }
