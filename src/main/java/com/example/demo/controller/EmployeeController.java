@@ -33,6 +33,8 @@ public class EmployeeController {
 	
 	@GetMapping("/getSecondHighestSalary")
 	public Double getSecondHighestSalary(){
+		// add this in any file
+		System.out.println("trigger");
 		return employeeService.findSecondHighestSalary();
 		
 	}
